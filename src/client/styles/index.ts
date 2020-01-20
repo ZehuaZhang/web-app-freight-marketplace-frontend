@@ -1,1 +1,2 @@
-import './app.css'
+import './app.scss'
+import './header.scss'

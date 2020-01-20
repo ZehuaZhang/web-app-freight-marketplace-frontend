@@ -8,6 +8,7 @@ import { OfferModel } from '../models'
 import { IJobState } from '../reducers/jobs.reducer'
 import { IOfferState } from '../reducers/offers.reducer'
 import { State } from '../reducers'
+import '../styles'
 
 export namespace Offers {
   export interface Props {

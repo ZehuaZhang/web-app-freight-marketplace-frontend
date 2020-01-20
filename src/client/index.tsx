@@ -4,7 +4,6 @@ import JobContainer from './containers/Jobs.container'
 import { Route, Redirect } from 'react-router-dom'
 import { Header, Footer } from './components'
 import { hot } from 'react-hot-loader'
-import * as style from './styles'
 
 export const App = hot(module)(() => (
   <div>

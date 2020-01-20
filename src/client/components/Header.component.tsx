@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 
 export namespace Header {
   export interface Props {
@@ -11,11 +11,11 @@ export class Header extends React.Component<Header.Props> {
     return (
       <div className="convoy-header-container">
         <div className="convoy-header-title">
-          <a className="convoy-navigation-header logo" href="/" target="blank">CONVOY</a>
+          <a className="convoy-navigation-header logo" href="https://convoy.com/" target="blank"></a>
         </div>
         <div className="convoy-navigation-container">
-          <Link className="convoy-navigation-item offer" to="/offers">Offers</Link>
-          <Link className="convoy-navigation-item job" to="/jobs">Jobs</Link>
+          <NavLink className="convoy-navigation-item offer" to="/offers">Offers</NavLink>
+          <NavLink className="convoy-navigation-item job" to="/jobs">Jobs</NavLink>
         </div>
       </div>
     )
