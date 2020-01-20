@@ -1,15 +1,24 @@
-# Frontend Boilerplate with React, Redux & TypeScript
+# Convoy Frontend
 
-A bare minimum react-redux-webpack-typescript boilerplate with TodoMVC example. 
+## How tos
 
-[Live demo](https://rokoroku.github.io/react-redux-typescript-boilerplate)
+### Installation
 
-Note that this project does not include **Server-Side Rendering**, **Static code analysis**, **Testing Frameworks** and other stuffs that makes the package unnecessarily complicated. (e.g. yarn, tslint, jest, ...)  
-If needed, please fork this repository and add your own that meets your requirements.
+```
+$ npm ci
+```
 
-Ideal for creating React apps from the scratch.
+### Run
 
-See also: [react-mobx-typescript-boilerplate](https://github.com/rokoroku/react-mobx-typescript-boilerplate)
+```
+$ npm start
+```
+
+### Build
+
+```
+$ npm run build
+```
 
 ## Contains
 
@@ -33,36 +42,7 @@ See also: [react-mobx-typescript-boilerplate](https://github.com/rokoroku/react-
 - [x] [Mini CSS Extract Plugin](https://github.com/webpack-contrib/mini-css-extract-plugin)
 - [x] [HTML Webpack Plugin](https://github.com/ampedandwired/html-webpack-plugin)
 
-## Installation
-
-```
-$ npm ci
-```
-
-## Running
-
-```
-$ npm start
-```
-
-## Build
-
-```
-$ npm run build
-```
-
-## Deploy (to the [GitHub Pages](https://pages.github.com/))
-
-```
-$ npm run deploy
-```
-
-## Format code (using [Prettier](https://github.com/prettier/prettier))
-
-```
-$ npm run prettier
-```
-
-# License
-
-MIT
+## To dos
+- [x] Server-Side Rendering
+- [x] Static code analysis
+- [x] Testing Frameworks
