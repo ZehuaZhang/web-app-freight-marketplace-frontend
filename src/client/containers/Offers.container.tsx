@@ -8,7 +8,6 @@ import { OfferModel } from '../models'
 import { IJobState } from '../reducers/jobs.reducer'
 import { IOfferState } from '../reducers/offers.reducer'
 import { State } from '../reducers'
-import '../styles'
 
 export namespace Offers {
   export interface Props {
@@ -24,6 +23,14 @@ export namespace Offers {
 }
 
 class Offers extends React.Component<Offers.Props> {
+  private convoyOfferDetailReference: React.RefObject<HTMLDivElement>
+
+  constructor(props: Offers.Props) {
+    super(props)
+
+    this.convoyOfferDetailReference = React.createRef()
+  }
+
   componentDidMount() {
     const { fetchOffersIfNeeded, fetchApplications } = this.props
     fetchOffersIfNeeded()
@@ -41,37 +48,46 @@ class Offers extends React.Component<Offers.Props> {
       toggleApplication, changeSortOrder, changeSortType, fetchOffersIfNeeded } = this.props
     const { sortType, sortOrder, receivedAt, requestStatus, } = offers
     return (
-      <div className="offer-container">
-        <Sort
-          changeSortOrder={changeSortOrder}
-          changeSortType={changeSortType}
-          fetchOffersIfNeeded={fetchOffersIfNeeded}
-          sortOrder={sortOrder}
-          sortType={sortType}
-        />
-        {
-          offers.items.map(offer =>
-            <OfferItem
-              offer={offer}
-              key={offer.offer}
-              toggleApplication={toggleApplication}
-              isRequested={jobs.includes(offer.offer)}
-            />
-          )
-        }
-        <button onClick={() => this.handleClickOnShowMore()}>
-          Show More
-        </button>
-        <Status
-          receivedAt={receivedAt}
-          requestStatus={requestStatus}
-        />
-      </div>
+      <div className="convoy-offer-container">
+        <div className="convoy-offer">
+          <Sort
+            changeSortOrder={changeSortOrder}
+            changeSortType={changeSortType}
+            fetchOffersIfNeeded={fetchOffersIfNeeded}
+            sortOrder={sortOrder}
+            sortType={sortType}
+            convoyOfferDetailReference={this.convoyOfferDetailReference}
+          />
+          <div className='convoy-offer-detailed-container-wrapper' >
+            <div className='convoy-offer-detailed-container' ref={this.convoyOfferDetailReference}>
+              <div className='convoy-offer-gallery-container'>
+                {
+                  offers.items.map(offer =>
+                    <OfferItem
+                      offer={offer}
+                      key={offer.offer}
+                      toggleApplication={toggleApplication}
+                      isRequested={jobs.includes(offer.offer)}
+                    />
+                  )
+                }
+              </div>
+              <button className="convoy-offer-show-more-button" onClick={() => this.handleClickOnShowMore()}>
+                Show More
+              </button>
+              <Status
+                receivedAt={receivedAt}
+                requestStatus={requestStatus}
+              />
+            </div>
+          </div>
+        </div>
+      </div >
     )
   }
 }
 
-const mapStateToProps = (state:State) => {
+const mapStateToProps = (state: State) => {
   const { offers, jobs } = state
   return {
     offers,

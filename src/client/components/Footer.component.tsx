@@ -9,7 +9,9 @@ export class Footer extends React.Component<Footer.Props> {
   render() {
     return (
       <div className="convoy-footer-container">
-        .zZehua's Homework
+        <div className="convoy-footer-title">
+          .zZehua's Homework
+        </div>
       </div>
     )
   }

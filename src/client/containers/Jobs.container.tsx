@@ -22,17 +22,25 @@ class Jobs extends React.Component<any> {
     const { jobs, toggleApplication } = this.props
     const getkey = (job: OfferModel | JobModel) => typeof job === 'number' ? job : job.offer
     return (
-      <div className="job-container">
-        {
-          jobs.map((job: OfferModel | JobModel) =>
-            <OfferItem
-              offer={job}
-              key={getkey(job)}
-              toggleApplication={toggleApplication}
-              isRequested={true}
-            />
-          )
-        }
+      <div className="convoy-job-container">
+        <div className="convoy-job">
+          <div className='convoy-job-detailed-container-wrapper' >
+            <div className='convoy-job-detailed-container'>
+              <div className='convoy-job-gallery-container'>
+                {
+                  jobs.map((job: OfferModel | JobModel) =>
+                    <OfferItem
+                      offer={job}
+                      key={getkey(job)}
+                      toggleApplication={toggleApplication}
+                      isRequested={true}
+                    />
+                  )
+                }
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     )
   }

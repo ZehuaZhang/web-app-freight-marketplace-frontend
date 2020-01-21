@@ -3,8 +3,9 @@ import { OfferModel } from '../models'
 
 export namespace Sort {
   export interface Props {
-    sortType: OfferModel.SortType,
-    sortOrder: OfferModel.SortOrder,
+    sortType: OfferModel.SortType
+    sortOrder: OfferModel.SortOrder
+    convoyOfferDetailReference: React.RefObject<HTMLDivElement>
     changeSortType: (sortType: OfferModel.SortType) => void
     changeSortOrder: (sortOrder: OfferModel.SortOrder) => void
     fetchOffersIfNeeded: (shouldForceUpdate: boolean) => void
@@ -15,20 +16,29 @@ type A = OfferModel.SortOrder
 
 export class Sort extends React.Component<Sort.Props> {
   handleClickOnDropdown(target: HTMLSelectElement) {
-    const { changeSortType, fetchOffersIfNeeded } = this.props
+    const { changeSortType, fetchOffersIfNeeded, convoyOfferDetailReference } = this.props
 
     changeSortType(target.value as OfferModel.SortType)
     fetchOffersIfNeeded(true)
+
+    // ReactDom.findDOMNode(convoyOfferDetailReference).scrollIntoView();
+    if (convoyOfferDetailReference && convoyOfferDetailReference.current) {
+      convoyOfferDetailReference.current.scrollTo(0, 0)
+    }
   }
 
   handleClickOnButton() {
-    const { changeSortOrder, fetchOffersIfNeeded, sortOrder } = this.props
+    const { changeSortOrder, fetchOffersIfNeeded, sortOrder, convoyOfferDetailReference } = this.props
     const SortOrderValueList = Object.keys(OfferModel.SortOrder)
       .map(typeName => (OfferModel.SortOrder as any)[typeName])
     const nextValue = SortOrderValueList[(SortOrderValueList.indexOf(sortOrder) + 1) % SortOrderValueList.length]
 
     changeSortOrder(nextValue)
     fetchOffersIfNeeded(true)
+
+    if (convoyOfferDetailReference && convoyOfferDetailReference.current) {
+      convoyOfferDetailReference.current.scrollTo(0, 0)
+    }
   }
 
   render() {
@@ -43,6 +53,9 @@ export class Sort extends React.Component<Sort.Props> {
 
     return (
       <div className='sort-container'>
+        <span className='sort-type-dropdown-prefix'>
+          {`Sort by: `}
+        </span>
         <select
           className='sort-type-dropdown'
           value={sortType}
@@ -58,7 +71,7 @@ export class Sort extends React.Component<Sort.Props> {
           }
         </select>
         <button onClick={() => this.handleClickOnButton()}>
-          {sortOrder}
+          {sortOrder === OfferModel.SortOrder.Ascending ? '⇧' : '⇩'}
         </button>
       </div>
     )
