@@ -2,16 +2,18 @@
 
 Designed Convoy Offer and My Job Page
 
-For applications, since we don't really have api to call, clicking directly applied to My Job
+For applications, since we don't really have api to call, clicking directly applied to My Jobs
 Applications persist when reopeninig the browser via local storage
 
-Every fetch is guaranteed for 3 offers
+Initial, Show More & Sorting Type fetch is guaranteed for exact 3 offers
 Retry 3 times when a 500 occurs
 
 Main app with hidden scroll bar, and would scroll to top when a new sorting is clicked
 Animations and transitions added on both user interactions, and on fetch status
 
 Header, Footer, 2 Sortings are sticky, and Added a status bar on footer
+
+Designed with Redux and Hot Reload for easy debugging
 
 ## How tos
 

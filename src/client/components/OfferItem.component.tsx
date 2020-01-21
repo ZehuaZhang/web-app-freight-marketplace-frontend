@@ -60,7 +60,7 @@ export class OfferItem extends React.Component<Footer.Props> {
         {
           typeof offer === 'number' ?
             <div className='offer-item-content'>
-              <span> Unable to Retrieve Job Details for {offerId} </span>
+              <span> Unable to Retrieve Job Details for Offer ID: {offerId} </span>
             </div>
             :
             <div className='offer-item-content'>
