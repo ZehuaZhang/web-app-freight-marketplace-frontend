@@ -15,19 +15,25 @@ Designed with Redux and Hot Reload for easy debugging
 ### Installation
 
 ```
-$ npm ci
+$ yarn
 ```
 
 ### Run
 
 ```
-$ npm start
+$ yarn start
+```
+
+### Run & Open Browser
+
+```
+$ yarn open
 ```
 
 ### Build
 
 ```
-$ npm run build
+$ yarn run build
 ```
 
 ## Libraries Applied
