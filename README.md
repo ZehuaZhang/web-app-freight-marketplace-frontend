@@ -33,7 +33,7 @@ $ yarn open
 ### Build
 
 ```
-$ yarn run build
+$ yarn build
 ```
 
 ## Libraries Applied
