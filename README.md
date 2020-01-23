@@ -24,7 +24,7 @@ $ yarn
 $ yarn start
 ```
 
-### Run & Open Browser
+### Run in Local
 
 ```
 $ yarn open

@@ -19,7 +19,7 @@
     "deploy": "gh-pages -d build",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack-dev-server --mode development --progress --color --port 3000 --config config/webpack.config.js",
-    "open": "yarn start --open --hot",
+    "local": "yarn start --open --hot",
     "build": "webpack -p --progress --colors --config config/webpack.config.js",
     "prettier": "prettier --write \"src/**/*.{ts,tsx,css}\""
   },

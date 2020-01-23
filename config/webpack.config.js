@@ -115,7 +115,7 @@ module.exports = {
   ],
   devServer: {
     contentBase: sourcePath,
-    hot: true,
+    hot: false,
     inline: true,
     historyApiFallback: {
       disableDotRule: true
