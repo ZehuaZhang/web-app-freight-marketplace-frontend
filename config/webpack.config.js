@@ -115,7 +115,8 @@ module.exports = {
   ],
   devServer: {
     contentBase: sourcePath,
-    hot: false,
+    hot: true,
+    port: process.env.PORT || 3000,
     inline: true,
     historyApiFallback: {
       disableDotRule: true
