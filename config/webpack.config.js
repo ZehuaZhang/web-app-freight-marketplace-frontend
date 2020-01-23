@@ -115,7 +115,7 @@ module.exports = {
   ],
   devServer: {
     contentBase: sourcePath,
-    hot: true,
+    hot: false,
     port: process.env.PORT || 3000,
     inline: true,
     historyApiFallback: {
